@@ -12,7 +12,8 @@ const processPayment = async (req, res, next) => {
 
     try {
         // amount as integer in cents will come from request/event body from front end 
-        const { amount } = req.body.amount;
+        // destructure amount directly from the request body
+        const { amount } = req.body;
         console.log(req.body);
         console.log(req.body.amount);
 
@@ -37,10 +38,7 @@ const processPayment = async (req, res, next) => {
     } catch (error){
         console.log({ error });
 
-        return {
-            status: 400,
-            body: JSON.stringify({ error })
-        }
+        return res.status(400).json({ error });
 
     }
 };

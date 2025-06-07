@@ -13,10 +13,7 @@ const getPriceById = async (req, res) => {
 
         console.log({ error });
 
-        return {
-            status: 400,
-            body: JSON.stringify({ error })
-                }
+        return res.status(400).json({ error });
     };
 };
 
@@ -32,10 +29,7 @@ const getAllPrices = async (req, res) => {
     }catch (error) {
         console.log({ error });
 
-        return {
-            status: 400,
-            body: JSON.stringify({ error })
-        }
+        return res.status(400).json({ error });
 
     };
 };
